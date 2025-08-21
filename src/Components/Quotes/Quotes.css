@@ -1,0 +1,25 @@
+.hero-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 20vh;
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
