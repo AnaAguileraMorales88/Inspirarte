@@ -18,29 +18,28 @@ function Form({ addQuote }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!text.trim()) {
       setError('Por favor completa todos los campos');
       return;
     }
 
-  const newQuote = {
-    text: text.trim(),
-    author: author.trim() || 'Anónimo',
-    image: image || null,
-    editing: false
-  };
+    const newQuote = {
+      id: Date.now(),
+      text: text.trim(),
+      author: author.trim() || 'Anónimo',
+      image: image || null,
+      editing: false
+    };
 
-  addQuote(newQuote);
+    addQuote(newQuote);
 
-  setText('');
-  setAuthor('');
-  setImage(null);
-  setError('');
+    setText('');
+    setAuthor('');
+    setImage(null);
+    setError('');
 
-      const favoriteSection = document.getElementById('misfavoritas');
-  if (favoriteSection) {
-    favoriteSection.scrollIntoView({ behavior: 'smooth' });
-  }
+    document.getElementById('misfavoritas')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -50,13 +49,13 @@ function Form({ addQuote }) {
         <label htmlFor="frase">FRASE :</label>
         <input
           type="text"
-          id='frase'
-          placeholder='Escribe tu frase aquí...'
+          id="frase"
+          placeholder="Escribe tu frase aquí..."
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className='inputText'
+          className="inputText"
         />
-        {error && <p className='errorText'>{error}</p>}
+        {error && <p className="errorText">{error}</p>}
 
         <label htmlFor="author">AUTOR :</label>
         <input
@@ -67,23 +66,23 @@ function Form({ addQuote }) {
           className="inputText"
         />
 
-        <label className='uploadImage'>
-          Subir imagen:
+        <label className="uploadImage">
+          Subir imagen: 
           <input
-            type='file'
-            accept='image/*'
+            type="file"
+            accept="image/*"
             onChange={handleImage}
-            className='hidden'
+            className="hidden"
           />
         </label>
 
         {image && (
-          <div className='imagePreview'>
-            <img src={image} alt='Vista previa' className='image' />
+          <div className="imagePreview">
+            <img src={image} alt="Vista previa" className="image" />
           </div>
         )}
 
-        <button type='submit' className='saveButton'>Guardar</button>
+        <button type="submit" className="saveButton">Guardar</button>
       </form>
     </section>
   );

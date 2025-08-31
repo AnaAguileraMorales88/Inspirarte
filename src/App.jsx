@@ -1,43 +1,54 @@
-import './App.css';
-import { useState} from 'react';
-import Header from './Components/Header/Header';
+import "./App.css";
+import { useState } from "react";
+import Header from "./Components/Header/Header";
 import Quotes from "./Components/Quotes/Quotes";
-import AddQuote from './Components/ButtonAdd/ButtonAdd';
-import Form from './Components/Form/Form';
-import FavoritePhrases from './Components/FavoritePhrases/FavoritePhrases';
+import AddQuote from "./Components/ButtonAdd/ButtonAdd";
+import Form from "./Components/Form/Form";
+import FavoritePhrases from "./Components/FavoritePhrases/FavoritePhrases";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
+  const generateId = () => "_" + Math.random().toString(36).substr(2, 9);
 
-const addQuote = (newQuote) => {
-  setQuotes([{ ...newQuote, editing: false }, ...quotes]);
-};
+  const addQuote = (newQuote) => {
+    setQuotes((prevQuotes) => [
+      { ...newQuote, id: generateId(), editing: false },
+      ...prevQuotes,
+    ]);
+  };
 
-  const toggleEdit = (index) => {
-    const updatedQuotes = quotes.map((quote, i) =>
-      i === index ? { ...quote, editing: !quote.editing } : quote
+  const onEdit = (id) => {
+    setQuotes(
+      quotes.map((quote) =>
+        quote.id === id ? { ...quote, editing: true } : quote
+      )
     );
-    setQuotes(updatedQuotes);
   };
 
-  const handleEdit = (index, field, value) => {
-    const updatedQuotes = [...quotes];
-    updatedQuotes[index][field] = value;
-    setQuotes(updatedQuotes);
+  const onChange = (id, field, value) => {
+    setQuotes(
+      quotes.map((quote) =>
+        quote.id === id ? { ...quote, [field]: value } : quote
+      )
+    );
   };
 
-  const saveEdit = (index) => {
-    const updatedQuotes = [...quotes];
-    if (!updatedQuotes[index].author.trim()) {
-      updatedQuotes[index].author = 'Anónimo';
-    }
-    updatedQuotes[index].editing = false;
-    setQuotes(updatedQuotes);
+  const onSave = (id) => {
+    setQuotes(
+      quotes.map((quote) =>
+        quote.id === id
+          ? {
+            ...quote,
+            editing: false,
+            author: quote.author.trim() || "Anónimo",
+          }
+          : quote
+      )
+    );
   };
 
-  const handleDelete = (index) => {
-    const updatedQuotes = quotes.filter((_, i) => i !== index);
-    setQuotes(updatedQuotes);
+  const onDelete = (id) => {
+    setQuotes(quotes.filter((quote) => quote.id !== id));
   };
 
   return (
@@ -46,16 +57,15 @@ const addQuote = (newQuote) => {
       <Quotes />
       <AddQuote />
       <Form addQuote={addQuote} />
-      <FavoritePhrases 
-        quotes={quotes} 
-        onEdit={toggleEdit} 
-        onDelete={handleDelete} 
-        onChange={handleEdit} 
-        onSave={saveEdit} 
+      <FavoritePhrases
+        quotes={quotes}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        onChange={onChange}
+        onSave={onSave}
       />
     </>
   );
 }
 
 export default App;
-

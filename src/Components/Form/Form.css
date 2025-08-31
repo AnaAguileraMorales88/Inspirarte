@@ -1,5 +1,9 @@
+:root {
+  --form-bg: #D6DAC8;;
+}
+
 .FormSection{
-  height: 100vh;
+  background-color: var(--form-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;

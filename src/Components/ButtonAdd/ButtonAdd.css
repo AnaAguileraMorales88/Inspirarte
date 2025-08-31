@@ -1,5 +1,16 @@
+:root {
+  --button-bg: #FBF3D5;
+}
+
+.button-container {
+  background-color: var(--button-bg);
+  padding: 4rem 0;
+  text-align: center; 
+  margin: 0;
+}
+
 .buttonadd {
-  display: block;
+  display: inline-block;
   text-align: center;
   border-radius: 1rem;
   border: 0.5px solid black;
@@ -8,14 +19,15 @@
   margin: 2rem auto; 
   font-size: 2rem;
   font-weight: 500;
-  background-color: #dbeafe;
+  background-color: #9CAFAA;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   margin-bottom: 10rem;
   text-decoration: none;
   max-width: 250px;
+  margin: 0;
 }
 .buttonadd:hover {
-  background-color: #b8d2f5;
+  background-color: #e0e8f3;
   transform: scale(1.07);
 }
