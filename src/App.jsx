@@ -1,14 +1,23 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Components/Header/Header";
 import Quotes from "./Components/Quotes/Quotes";
 import AddQuote from "./Components/ButtonAdd/ButtonAdd";
 import Form from "./Components/Form/Form";
 import FavoritePhrases from "./Components/FavoritePhrases/FavoritePhrases";
+import Footer from "./Components/Footer/footer";
 
 function App() {
-  const [quotes, setQuotes] = useState([]);
+  const [quotes, setQuotes] = useState(() => {
+    const storedQuotes = localStorage.getItem("quotes");
+    return storedQuotes ? JSON.parse(storedQuotes) : [];
+  });
+
   const generateId = () => "_" + Math.random().toString(36).substr(2, 9);
+
+  useEffect(() => {
+    localStorage.setItem("quotes", JSON.stringify(quotes));
+  }, [quotes]);
 
   const addQuote = (newQuote) => {
     setQuotes((prevQuotes) => [
@@ -38,10 +47,10 @@ function App() {
       quotes.map((quote) =>
         quote.id === id
           ? {
-            ...quote,
-            editing: false,
-            author: quote.author.trim() || "Anónimo",
-          }
+              ...quote,
+              editing: false,
+              author: quote.author.trim() || "Anónimo",
+            }
           : quote
       )
     );
@@ -64,6 +73,7 @@ function App() {
         onChange={onChange}
         onSave={onSave}
       />
+      <Footer />
     </>
   );
 }

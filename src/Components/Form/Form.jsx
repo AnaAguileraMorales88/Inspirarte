@@ -1,11 +1,11 @@
-import './Form.css';
-import { useState } from 'react';
+import "./Form.css";
+import { useState } from "react";
 
 function Form({ addQuote }) {
-  const [text, setText] = useState('');
-  const [author, setAuthor] = useState('');
+  const [text, setText] = useState("");
+  const [author, setAuthor] = useState("");
   const [image, setImage] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -20,32 +20,34 @@ function Form({ addQuote }) {
     e.preventDefault();
 
     if (!text.trim()) {
-      setError('Por favor completa todos los campos');
+      setError("Por favor completa todos los campos");
       return;
     }
 
     const newQuote = {
       id: Date.now(),
       text: text.trim(),
-      author: author.trim() || 'Anónimo',
+      author: author.trim() || "Anónimo",
       image: image || null,
-      editing: false
+      editing: false,
     };
 
     addQuote(newQuote);
 
-    setText('');
-    setAuthor('');
+    setText("");
+    setAuthor("");
     setImage(null);
-    setError('');
+    setError("");
 
-    document.getElementById('misfavoritas')?.scrollIntoView({ behavior: 'smooth' });
+    document
+      .getElementById("misfavoritas")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="añadir" className='FormSection'>
-      <h2 className='Formh2'>Dale forma a tu inspiración</h2>
-      <form onSubmit={handleSubmit} className='formContainer'>
+    <section id="añadir" className="FormSection">
+      <h2 className="Formh2">Dale forma a tu inspiración</h2>
+      <form onSubmit={handleSubmit} className="formContainer">
         <label htmlFor="frase">FRASE :</label>
         <input
           type="text"
@@ -66,15 +68,14 @@ function Form({ addQuote }) {
           className="inputText"
         />
 
-        <label className="uploadImage">
-          Subir imagen: 
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImage}
-            className="hidden"
-          />
-        </label>
+        <label htmlFor="image">SUBIR IMAGEN :</label>
+        <input
+          type="file"
+          id="image"
+          accept="image/*"
+          onChange={handleImage}
+          className="inputFile"
+        />
 
         {image && (
           <div className="imagePreview">
@@ -82,7 +83,9 @@ function Form({ addQuote }) {
           </div>
         )}
 
-        <button type="submit" className="saveButton">Guardar</button>
+        <button type="submit" className="saveButton">
+          Guardar
+        </button>
       </form>
     </section>
   );

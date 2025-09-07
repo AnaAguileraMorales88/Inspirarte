@@ -9,8 +9,8 @@ export default function Header() {
       <img src={logo} alt="InspirArte Logo" className='site-logo' />
     </a>
     <nav className="site-nav">
-      <a href="#añadir" className="nav-link">Crear</a>
-      <a href="#misfavoritas" className="nav-link">Mis Frases Favoritas</a>
+      <a href="#añadir" className="nav-link">CREAR</a>
+      <a href="#misfavoritas" className="nav-link">MIS FRASES FAVORITAS</a>
     </nav>
   </section>
 </header>

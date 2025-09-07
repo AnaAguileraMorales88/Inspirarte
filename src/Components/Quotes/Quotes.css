@@ -1,14 +1,15 @@
 :root {
-  --quotes-bg: #FBF3D5;
+  --quotes-bg: #F6DED8;
 }
 
 .hero-title {
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--quotes-bg);
   display: flex;
   justify-content: center;
   text-align: center;
   font-size: 2rem;
-  padding-top: 20vh;
+  padding-top: 15vh;
   margin: 0;
 
 }
