@@ -4,7 +4,7 @@ export default function Quotes() {
   return (
     <div>
       <h2 className="hero-title">
-        La inspiración comienza con una sola frase.
+        Inspírate, crea, sonríe
       </h2>
     </div>
   )

@@ -26,7 +26,7 @@ function FavoritePhrases({ quotes, onEdit, onDelete, onChange, onSave }) {
 
   return (
     <section id="misfavoritas" className="favorite-section">
-      <h2 className="phrasesh2">Mis Frases Favoritas</h2>
+      <h2 className="phrasesh2">Mis Frases con Alma</h2>
 
       {deletedMessage && <p className="deleted-message">{deletedMessage}</p>}
 

@@ -46,7 +46,7 @@ function Form({ addQuote }) {
 
   return (
     <section id="añadir" className="FormSection">
-      <h2 className="Formh2">Dale forma a tu inspiración</h2>
+      <h2 className="Formh2">Convierte tus ideas en frases únicas</h2>
       <form onSubmit={handleSubmit} className="formContainer">
         <label htmlFor="frase">FRASE :</label>
         <input
