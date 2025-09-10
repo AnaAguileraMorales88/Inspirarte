@@ -6,6 +6,7 @@ function Form({ addQuote }) {
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState(null);
   const [error, setError] = useState("");
+  const [showErrorModal, setShowErrorModal] = useState(false); 
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -21,6 +22,7 @@ function Form({ addQuote }) {
 
     if (!text.trim()) {
       setError("Por favor completa todos los campos");
+      setShowErrorModal(true); 
       return;
     }
 
@@ -38,10 +40,16 @@ function Form({ addQuote }) {
     setAuthor("");
     setImage(null);
     setError("");
+    setShowErrorModal(false);
 
     document
       .getElementById("misfavoritas")
       ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const closeErrorModal = () => {
+    setShowErrorModal(false);
+    setError("");
   };
 
   return (
@@ -57,7 +65,6 @@ function Form({ addQuote }) {
           onChange={(e) => setText(e.target.value)}
           className="inputText"
         />
-        {error && <p className="errorText">{error}</p>}
 
         <label htmlFor="author">AUTOR :</label>
         <input
@@ -87,6 +94,19 @@ function Form({ addQuote }) {
           Guardar
         </button>
       </form>
+
+      {showErrorModal && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>{error}</p>
+            <div className="modal-buttons">
+              <button onClick={closeErrorModal} className="delete-button">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

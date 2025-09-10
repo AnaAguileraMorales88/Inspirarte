@@ -4,9 +4,9 @@
 
 .button-container {
   background-color: var(--button-bg);
-  padding: 4rem 0;
+  padding: 2rem 0;
   text-align: center; 
-  margin: 0;
+  margin: 0 auto;
 }
 
 .buttonadd {
@@ -15,17 +15,17 @@
   border-radius: 1rem;
   border: 0.5px solid black;
   color: black;
-  padding: 1.25rem 2.25rem;
+  padding: 2rem 2.50rem;
   margin: 2rem auto; 
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 500;
   background-color:#CED6D4;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  margin-bottom: 10rem;
   text-decoration: none;
   max-width: 250px;
-  margin: 0;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 }
 .buttonadd:hover {
   background-color: #e0e8f3;

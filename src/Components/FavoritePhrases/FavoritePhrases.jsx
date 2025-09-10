@@ -5,23 +5,34 @@ function FavoritePhrases({ quotes, onEdit, onDelete, onChange, onSave }) {
   const [showModal, setShowModal] = useState(false);
   const [quoteToDelete, setQuoteToDelete] = useState(null);
   const [deletedMessage, setDeletedMessage] = useState('');
+  const [lastEditedId, setLastEditedId] = useState(null);
 
   const handleDeleteClick = (quote) => {
     setQuoteToDelete(quote);
     setShowModal(true);
     setDeletedMessage('');
+    setLastEditedId(null);
   };
 
   const confirmDelete = () => {
     onDelete(quoteToDelete.id);
     setShowModal(false);
     setDeletedMessage('¡Tu frase ha sido eliminada!');
+    setLastEditedId(null);
     setQuoteToDelete(null);
+    setTimeout(() => setDeletedMessage(''), 3000);
   };
 
   const cancelDelete = () => {
     setShowModal(false);
     setQuoteToDelete(null);
+  };
+
+  const handleSave = (id) => {
+    onSave(id);
+    setLastEditedId(id);
+    setDeletedMessage('');
+    setTimeout(() => setLastEditedId(null), 3000);
   };
 
   return (
@@ -50,7 +61,7 @@ function FavoritePhrases({ quotes, onEdit, onDelete, onChange, onSave }) {
                     onChange={(e) => onChange(quote.id, "author", e.target.value)}
                     className="author-input"
                   />
-                  <button onClick={() => onSave(quote.id)} className="save-button">
+                  <button onClick={() => handleSave(quote.id)} className="save-button">
                     Guardar
                   </button>
                 </>
@@ -73,6 +84,9 @@ function FavoritePhrases({ quotes, onEdit, onDelete, onChange, onSave }) {
                       Eliminar
                     </button>
                   </div>
+                  {lastEditedId === quote.id && (
+                    <p className="edited-message">¡Tu frase ha sido editada correctamente! ✅</p>
+                  )}
                 </>
               )}
             </div>

@@ -2,17 +2,33 @@
   --quotes-bg: #F6DED8;
 }
 
-.hero-title {
-  font-family: 'Montserrat', sans-serif;
+.quotes-container {
   background-color: var(--quotes-bg);
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 2rem;
-  padding-top: 15vh;
-  margin: 0;
-
+  min-height: 35vh; 
+  margin-top: 140px; 
 }
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  white-space: nowrap;         
+  overflow: hidden;             
+  border-right: 3px solid black; 
+  width: 0;                    
+  animation: typing 4s steps(25, end) forwards, blink 0.7s infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 25ch } 
+}
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
 
 @media (min-width: 640px) {
   .hero-title {
