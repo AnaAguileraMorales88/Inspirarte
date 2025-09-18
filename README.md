@@ -15,15 +15,15 @@ Es una Aplicación de Página Única (SPA) donde puedes tener tu propia página 
  Solo necesitas un navegador moderno y un editor como VS Code.
 
 1. Clona este repositorio:
-   ```bash
+
   git@github.com:AnaAguileraMorales88/Inspirarte.git
-   ```
+   
 
-2. Abre la carpeta en Visual Studio Code.
+3. Abre la carpeta en Visual Studio Code.
 
-3. Usa npm run dev para abrir un live server y visualizar la página.
+4. Usa npm run dev para abrir un live server y visualizar la página.
 
-4. ¡Listo! Empieza a explorar la web!
+5. ¡Listo! Empieza a explorar la web!
 
 ## Tailwind CSS
 Este proyecto utiliza <strong>Tailwind CSS</strong> para los estilos.
