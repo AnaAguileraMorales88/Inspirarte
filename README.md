@@ -1,12 +1,31 @@
-# React + Vite
+# InspirArte
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Es una Aplicación de Página Única (SPA) donde puedes tener tu propia página para mostrar tus Frases Motivadoras Favoritas.
+¡Puedes crear, editar, leer y también eliminar frases con total libertad! 
 
-Currently, two official plugins are available:
+## Tecnologías
+- `HTML5`
+- `CSS3`
+- `React.js`
+- `Tailwindcss`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  
+## ¿Cómo iniciar el proyecto localmente?
 
-## Expanding the ESLint configuration
+ Solo necesitas un navegador moderno y un editor como VS Code.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clona este repositorio:
+   ```bash
+  git@github.com:AnaAguileraMorales88/Inspirarte.git
+   ```
+
+2. Abre la carpeta en Visual Studio Code.
+
+3. Usa npm run dev para abrir un live server y visualizar la página.
+
+4. ¡Listo! Empieza a explorar la web!
+
+## Tailwind CSS
+Este proyecto utiliza <strong>Tailwind CSS</strong> para los estilos.
+ ### Versión 
+  Versión de Tailwind CSS : ```v4.1.11```
