@@ -27,5 +27,8 @@ Es una Aplicación de Página Única (SPA) donde puedes tener tu propia página 
 
 ## Tailwind CSS
 Este proyecto utiliza <strong>Tailwind CSS</strong> para los estilos.
- ### Versión 
-  Versión de Tailwind CSS : ```v4.1.11```
+### Versión 
+Versión de Tailwind CSS : ```v4.1.11```
+
+##Autora
+Ana Aguilera 
